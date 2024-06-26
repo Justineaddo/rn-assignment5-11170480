@@ -28,7 +28,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Image source={{ uri: 'https://via.placeholder.com/40' }} style={styles.profileImage} />
-        <Text style={styles.welcomeText}>Welcome back,{"\n"}Justine Addo</Text>
+        <Text style={styles.welcomeText}>Welcome back,{"\n"}Justine</Text>
         <Icon name="search" size={24} style={styles.searchIcon} />
       </View>
       <View style={styles.cardContainer}>

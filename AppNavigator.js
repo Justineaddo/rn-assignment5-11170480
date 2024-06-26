@@ -1,6 +1,6 @@
 // AppNavigator.js
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, ThemeProvider } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './HomeScreen';
@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   return (
+    <ThemeProvider>
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -31,6 +32,7 @@ const AppNavigator = () => {
         
       </Tab.Navigator>
     </NavigationContainer>
+    </ThemeProvider>
   );
 };
 

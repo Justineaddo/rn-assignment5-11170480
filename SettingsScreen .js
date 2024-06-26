@@ -1,31 +1,33 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 
 const SettingsScreen = () => {
-  const [isEnabled, setIsEnabled] = React.useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
+
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
+  const themeStyles = isEnabled ? darkModeStyles : lightModeStyles;
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Settings</Text>
+    <View style={[styles.container, themeStyles.container]}>
+      <Text style={[styles.title, themeStyles.text]}>Settings</Text>
       <View style={styles.option}>
-        <Text style={styles.optionText}>Language</Text>
+        <Text style={[styles.optionText, themeStyles.text]}>Language</Text>
       </View>
       <View style={styles.option}>
-        <Text style={styles.optionText}>My Profile</Text>
+        <Text style={[styles.optionText, themeStyles.text]}>My Profile</Text>
       </View>
       <View style={styles.option}>
-        <Text style={styles.optionText}>Contact Us</Text>
+        <Text style={[styles.optionText, themeStyles.text]}>Contact Us</Text>
       </View>
       <View style={styles.option}>
-        <Text style={styles.optionText}>Change Password</Text>
+        <Text style={[styles.optionText, themeStyles.text]}>Change Password</Text>
       </View>
       <View style={styles.option}>
-        <Text style={styles.optionText}>Privacy Policy</Text>
+        <Text style={[styles.optionText, themeStyles.text]}>Privacy Policy</Text>
       </View>
       <View style={styles.themeContainer}>
-        <Text style={styles.themeText}>Theme</Text>
+        <Text style={[styles.themeText, themeStyles.text]}>Theme</Text>
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
           thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
@@ -38,11 +40,28 @@ const SettingsScreen = () => {
   );
 };
 
+const lightModeStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+  },
+  text: {
+    color: '#000',
+  },
+});
+
+const darkModeStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#000',
+  },
+  text: {
+    color: '#fff',
+  },
+});
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
